@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>灵感之茶</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="灵感之茶">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <script src="http://pingjs.qq.com/h5/stats.js?v2.0.4" name="MTAH5" sid="500531126" cid="500531128"></script><script src="https://hm.baidu.com/hm.js?d354a40e1143f3574bc86106fd51eddb"></script><script src="http://res1.justeasy.cn/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://res1.justeasy.cn/js/layer/layer.js"></script><link rel="stylesheet" href="http://res1.justeasy.cn/js/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://res1.justeasy.cn/js/jquery.qrcode.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://res1.justeasy.cn/css/vr-css.css">
+    <style>
+        @-ms-viewport { width:device-width; }
+        @media only screen and (min-device-width:800px) { html { overflow:hidden; } }
+        html { height:100%; }
+        body { height:100%; overflow:hidden; margin:0; padding:0; font-family:微软雅黑, Arial, Helvetica, sans-serif; font-size:16px; color:#FFFFFF; background-color:#000000; }
+        a{color: #ddd; text-decoration: none;}
+        a img{border:none;}
+        ul{list-style: none; padding: 0; margin:0;}
+        input[type="button"], input[type="submit"], input[type="reset"] { -webkit-appearance: none;}
+        textarea { -webkit-appearance: none;}
+        .pano-wrapper{ position: fixed; right: 20px; bottom: 23px; font-size: 14px; }
+        .pano-wrapper li{ width: 70px; height: 70px; float: right; position: relative; text-align: center; }
+        .pano-wrapper .iconname{ padding-top: 3px; }
+        .pano-wrapper .icon{ width: 36px; cursor: pointer; }
+        .pano-wrapper .tel{ padding: 0 10px; height: 30px; line-height: 30px; /*position: fixed; right: 10px; bottom: 115px; */color: #ddd; background: rgba(70,70,70,.8); }
+        .pano-wrapper .ewm{width: 200px; height: 200px; position: fixed; right: 35px; bottom: 115px;}
+        .pano-wrapper .ewm img{width:200px; height: 200px;}
+
+        .layui-layer-rim{ border: 10px solid #8D8D8D; border: 10px solid rgba(0,0,0,.3);  }
+        .layui-layer-title{ font-size: 18px;  background: #f3f3f3; height: 50px; line-height: 50px; }
+        .intro{color: #666; line-height: 35px; font-size: 16px;}
+        .top-advert{position: fixed;top:0px; z-index: 999999999; font-size: 14px; height: 36px;line-height: 36px;background: rgba(0,0,0,.3);width: 100%;text-align: center;overflow: hidden}
+        .top-advert .top-close { position: absolute; right: 5px; top: 9px; }
+        .top-advert i {  background: url(http://res1.justeasy.cn/images/vr-close.png); display: block; width: 18px; height: 18px; cursor: pointer;}
+
+        @media(max-width: 500px){
+            body{font-size:14px;}
+            .pano-wrapper{ bottom: 0px; right: 0px;  font-size: 14px;}
+            .pano-wrapper li{ width: 60px; height: 60px;}
+            .pano-wrapper .iconname{ padding-top: 0px; }
+            .pano-wrapper .icon{ width: 30px; cursor: pointer; }
+            .pano-wrapper .share{display: none;}
+            .layui-layer-rim,.layui-layer-hui{ width: 80% !important;}
+            .layui-layer-rim iframe,.layui-layer-hui iframe{width: 100% !important;}
+            .pano-wrapper .mdesigner{display: block !important; position: fixed; left: 60px;}
+            .pano-wrapper .mdesigner1{display: block !important; position: fixed; left: 110px;}
+            .pano-wrapper .scenes{display: block !important; position: fixed; left: 10px;}
+        }
+        @media(max-width: 375px){
+            .pano-wrapper{ bottom: 0px; right: 0px;   font-size: 12px;}
+            .pano-wrapper li{ width: 50px; height: 50px;}
+            .pano-wrapper .iconname{ padding-top: 0px; }
+            .pano-wrapper .icon{ width: 25px; cursor: pointer; }
+            .pano-wrapper .share{display: none;}
+            .layui-layer-rim,.layui-layer-hui{ width: 80% !important;}
+            .layui-layer-rim iframe,.layui-layer-hui iframe{width: 100% !important;}
+            .pano-wrapper .mdesigner{display: block !important; position: fixed; left: 60px;}
+            .pano-wrapper .mdesigner1{display: block !important; position: fixed; left: 110px;}
+            .pano-wrapper .scenes{display: block !important; position: fixed; left: 10px;}
+        }
+        @media(max-width: 320px){
+            .pano-wrapper{ bottom: 0px; right: 0px;   font-size: 10px;}
+            .pano-wrapper li{ width: 40px; height: 50px;}
+            .pano-wrapper .iconname{ padding-top: 0px; }
+            .pano-wrapper .icon{ width: 20px; cursor: pointer; }
+            .pano-wrapper .share{display: none;}
+            .layui-layer-rim,.layui-layer-hui{ width: 80% !important;}
+            .layui-layer-rim iframe,.layui-layer-hui iframe{width: 100% !important;}
+            .pano-wrapper .mdesigner{display: block !important; position: fixed; left: 40px;}
+            .pano-wrapper .mdesigner1{display: block !important; position: fixed; left: 90px;}
+            .pano-wrapper .scenes{display: block !important; position: fixed; left: 0px;}
+        }
+        .none{ display: none }
+        .pop{margin-top:40px;text-align:center;}
+        .pop .pwd{width:155px;height:35px;margin-right:20px;line-height:35px;padding:0 5px;border:1px solid #ccc;font-size:16px;}
+        .pop .submit{background:#F6BB42;color:#fff;padding:7px 14px;font-weight: 400;border-radius:4px;font-size:16px;}
+        .kf-line{position: absolute;bottom:75px;background: rgba(70, 70, 70, 0.8) none repeat scroll 0 0;padding: 2px 5px;right: -36px;}
+        .border-red{border: 1px #f00 solid;}
+        .top-advert{position: fixed;top:0px;height: 36px;line-height: 36px;background: rgba(0,0,0,.3);width: 100%;text-align: center;overflow: hidden}
+    </style>
+</head>
+<body>
+<script src="http://res1.justeasy.cn/vr/tour.js"></script>
+<div id="pano" style="width:100%;height:100%;">
+    <noscript>&lt;table style="width:100%;height:100%;"&gt;&lt;tr style="vertical-align:middle;"&gt;&lt;td&gt;&lt;div style="text-align:center;"&gt;ERROR:&lt;br/&gt;&lt;br/&gt;Javascript not activated&lt;br/&gt;&lt;br/&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</noscript>
+    <div id="krpanoSWFObject" tabindex="-1" style="position: relative; overflow: hidden; line-height: normal; font-weight: normal; font-style: normal; outline: 0px; width: 100%; height: 100%; cursor: pointer; pointer-events: auto;"><div style="position: absolute; left: 0px; top: 0px; width: 452px; height: 686px; overflow: hidden; user-select: none; touch-action: none; -webkit-tap-highlight-color: transparent; cursor: default;"><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none;"><canvas style="position: absolute; left: 0px; top: 0px; width: 452px; height: 686px;" width="565" height="857"></canvas></div><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden; user-select: none; transform-style: preserve-3d;"><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; background: none; width: 0px; height: 0px; transform: translateZ(1e+12px) translate(0px, 0px) translate(0px, 0px) rotate(0deg) translate(0px, 0px);"></div><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; background: none; width: 0px; height: 0px; transform: translateZ(1e+12px) translate(0px, 0px) translate(0px, 0px) rotate(0deg) translate(0px, 0px);"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 0; color: rgb(0, 0, 0); text-size-adjust: none; pointer-events: auto; background: none; cursor: pointer; width: 86.4px; height: 32px; transform: translateZ(1e+12px) translate(183.2px, 24px) translate(0px, -16px) rotate(0deg) translate(0px, 16px);"><div style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px 0px; transform: scale(1); width: 100%; height: 100%; font-size: 12px; font-family: Arial; line-height: normal; pointer-events: none; visibility: visible;"><div style="position: absolute; white-space: nowrap; background-color: rgba(0, 0, 0, 0); border-radius: 1px; box-shadow: rgba(48, 38, 27, 0) 0px 0px 8px;"><div style="margin:6px 10px 6px 10px; color:#FFFFFF; font-family:微软雅黑 , Arial , Helvetica, sans-serif; height:20px; font-size:14px; color:#FFFFFF;font-size:20px;">退出VR</div></div></div></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 0; color: rgb(0, 0, 0); text-size-adjust: none; pointer-events: auto; background: none; cursor: pointer; width: 86.4px; height: 32px; transform: translateZ(1e+12px) translate(183.2px, 630.4px) translate(0px, 16px) rotate(0deg) translate(0px, -16px);"><div style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px 0px; transform: scale(1); width: 100%; height: 100%; font-size: 12px; font-family: Arial; line-height: normal; pointer-events: none; visibility: visible;"><div style="position: absolute; white-space: nowrap; background-color: rgba(0, 0, 0, 0); border-radius: 1px; box-shadow: rgba(48, 38, 27, 0) 0px 0px 8px;"><div style="margin:6px 10px 6px 10px; color:#FFFFFF; font-family:微软雅黑 , Arial , Helvetica, sans-serif; height:20px; font-size:14px; color:#FFFFFF;font-size:20px;">VR设置</div></div></div></div><div style="position: absolute; z-index: 3002; overflow: hidden; opacity: 1; background: none; cursor: default; pointer-events: none; border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 0px; width: 452px; height: 686.4px; transform: translateZ(1e+12px) translate(0px, 0px) translate(0px, -343.2px) rotate(0deg) translate(0px, 343.2px);"><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/fullscreen.png&quot;); width: 28px; height: 28px; background-position: 0px 0px; background-size: 28px 28px; transform: translateZ(1e+12px) translate(20px, 468.8px) translate(-14px, 14px) rotate(0deg) translate(14px, -14px);"></div><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/vr.png&quot;); width: 28.8px; height: 28.8px; background-position: 0px 0px; background-size: 28.8px 28.8px; transform: translateZ(1e+12px) translate(20px, 548px) translate(-14.4px, 14.4px) rotate(0deg) translate(14.4px, -14.4px);"></div><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/music.png&quot;); width: 28.8px; height: 28.8px; background-position: 0px 0px; background-size: 28.8px 28.8px; transform: translateZ(1e+12px) translate(20px, 508px) translate(-14.4px, 14.4px) rotate(0deg) translate(14.4px, -14.4px);"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/gyro.png&quot;); width: 28.8px; height: 28.8px; background-position: 0px 0px; background-size: 28.8px 28.8px; transform: translateZ(1e+12px) translate(20px, 468px) translate(-14.4px, 14.4px) rotate(0deg) translate(14.4px, -14.4px);"></div><div style="position: absolute; z-index: 3002; overflow: hidden; opacity: 1; cursor: default; pointer-events: none; background: none; border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 0px; width: 452px; height: 686.4px; transform: translateZ(1e+12px) translate(0px, -100px) translate(0px, 343.2px) rotate(0deg) translate(0px, -343.2px);"><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; background: none; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px 0px; border-style: solid; border-color: rgba(255, 255, 255, 0); border-width: 1px 0px; border-radius: 0px; width: 452px; height: 686.4px; transform: translateZ(1e+12px) translate(0px, 685px) translate(0px, 343.2px) rotate(0deg) translate(0px, -343.2px);"><div style="position: absolute; z-index: 3001; overflow: hidden; opacity: 1; cursor: default; pointer-events: none; background: none rgba(0, 0, 0, 0.2); border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 0px; width: 452px; height: 686.4px; transform: translateZ(1e+12px) translate(0px, 0px) translate(-226px, -343.2px) rotate(0deg) translate(226px, 343.2px);"><div style="display: none; position: absolute; z-index: 3001; overflow: hidden; opacity: 1; cursor: default; pointer-events: none; background: none; border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 0px; width: 452px; height: 686.4px; transform: translateZ(1e+12px) translate(0px, 0px) translate(-226px, -343.2px) rotate(0deg) translate(226px, 343.2px);"><div style="display: none; position: absolute; z-index: 3003; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/vtourskin.png&quot;); width: 32px; height: 32px; background-position: 0px -32px; background-size: 64px 384px; transform: translateZ(1e+12px) translate(4.8px, 44.8px) translate(-16px, 0px) rotate(0deg) translate(16px, 0px);"></div><div style="display: none; position: absolute; z-index: 3003; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/vtourskin.png&quot;); width: 32px; height: 32px; background-position: -32px -32px; background-size: 64px 384px; transform: translateZ(1e+12px) translate(415.2px, 44.8px) translate(16px, 0px) rotate(0deg) translate(-16px, 0px);"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; background: none rgba(255, 255, 255, 0.25); border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 0px; width: 0px; height: 2.4px; transform: translateZ(1e+12px) translate(0px, 120px) translate(0px, -1.2px) rotate(0deg) translate(0px, 1.2px);"></div><div style="position: absolute; z-index: 3002; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; background: none; width: 120px; height: 122.4px; transform: translateZ(1e+12px) translate(0px, 0px) translate(-60px, -61.2px) rotate(0deg) translate(60px, 61.2px);"><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; background-image: url(&quot;http://img.vr.justeasy.cn/pano/20180204/3d8949cb9bbf4695515a4661add97d81/20180204115335_5a7683bf3d2e1.tiles/thumb.jpg&quot;); width: 100px; height: 100px; background-position: 0px 0px; background-size: 100px 100px; transform: translateZ(1e+12px) translate(10.4px, 10.4px) translate(-50px, -50px) rotate(0deg) translate(50px, 50px);"><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; color: rgb(0, 0, 0); text-size-adjust: none; width: 100px; height: 24px; transform: translateZ(1e+12px) translate(0px, 71.2px) translate(0px, 12px) rotate(0deg) translate(0px, -12px); background: none;"><div style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px 0px; transform: scale(1); width: 100%; height: 100%; font-size: 12px; font-family: Arial; line-height: normal; pointer-events: none; visibility: visible;"><div style="position: absolute; width: 100px; overflow: hidden; text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;"><div style="margin:2px 2px 2px 2px; color:#FFFFFF; font-family:微软雅黑 , Arial , Helvetica, sans-serif; height:20px; font-size:14px; text-align:center; font-size:10px;">奶茶店副本</div></div></div></div><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; background: none; cursor: default; pointer-events: none; border-style: solid; border-color: rgba(239, 120, 0, 0.8); border-width: 4px; border-radius: 3px; width: 96px; height: 96px; transform: translateZ(1e+12px) translate(-2.4px, -2.4px) translate(-48px, -48px) rotate(0deg) translate(48px, 48px);"></div></div></div></div></div></div></div><div style="position: absolute; z-index: 3003; overflow: hidden; opacity: 1; cursor: default; pointer-events: none; background: none; border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 0px; width: 452px; height: 100px; transform: translateZ(1e+12px) translate(0px, 586.4px) translate(0px, 50px) rotate(0deg) translate(0px, -50px);"><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; background: none; box-shadow: rgba(0, 0, 0, 0) 0px 0px 20px 0px; border-style: solid; border-color: rgba(255, 255, 255, 0); border-width: 1px 0px; border-radius: 0px; width: 452px; height: 40px; transform: translateZ(1e+12px) translate(0px, -0.8px) translate(0px, 20px) rotate(0deg) translate(0px, -20px);"></div></div><div style="position: absolute; z-index: 3004; overflow: visible; opacity: 1; cursor: default; pointer-events: none; background: none; border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 0px; width: 452px; height: 40px; transform: translateZ(1e+12px) translate(0px, 586.4px) translate(0px, 20px) rotate(0deg) translate(0px, -20px);"><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; background: none; border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 0px; width: 452px; height: 40px; transform: translateZ(1e+12px) translate(0px, 0px) translate(-226px, 20px) rotate(0deg) translate(226px, -20px);"><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/scene.png&quot;); width: 36px; height: 36px; background-position: 0px 0px; background-size: 36px 36px; transform: translateZ(1e+12px) translate(40px, 7.2px) translate(-18px, 0px) rotate(0deg) translate(18px, 0px);"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; background: none; border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 5px; width: 70.4px; height: 28px; transform: translateZ(1e+12px) translate(22.4px, 46.4px) translate(-35.2px, 0px) rotate(0deg) translate(35.2px, 0px);"><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto; color: rgb(0, 0, 0); text-size-adjust: none; background: none; width: 70.4px; height: 26.4px; transform: translateZ(1e+12px) translate(0px, 0px) translate(-35.2px, -13.2px) rotate(0deg) translate(35.2px, 13.2px);"><div style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px 0px; transform: scale(1); width: 100%; height: 100%; font-size: 12px; font-family: Arial; line-height: normal; pointer-events: none; visibility: visible;"><div style="position:absolute;white-space:nowrap;"><div style="margin:3px 7px 3px 7px;font-size:14px; color:#FFFFFF;font-family:微软雅黑, Arial, Helvetica, sans-serif">场景选择</div></div></div></div></div></div></div><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; color: rgb(0, 0, 0); text-size-adjust: none; background: none; width: 70.4px; height: 24px; transform: translateZ(1e+12px) translate(196px, 326.4px) translate(0px, 0px) rotate(0deg) translate(0px, 0px); display: none;"><div style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px 0px; transform: scale(1); width: 100%; height: 100%; font-size: 12px; font-family: Arial; line-height: normal; pointer-events: none; visibility: visible;"><div style="position: absolute; white-space: nowrap; text-shadow: rgb(0, 0, 0) 1px 1px 3.2px;"><div style="margin:2px 2px 2px 2px; color:#FFFFFF; font-family:微软雅黑 , Arial , Helvetica, sans-serif; height:20px; font-size:14px; text-align:center; font-style:italic; font-size:22px;">加载中</div></div></div></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 0; cursor: default; pointer-events: none; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/vtourskin.png&quot;); width: 64px; height: 64px; background-position: -64px -384px; background-size: 128px 768px; transform: translateZ(1e+12px) translate(194.4px, 312px) translate(0px, 0px) rotate(0deg) translate(0px, 0px);"></div></div><div style="display: none; position: absolute; z-index: 3003; overflow: visible; opacity: 0.25; background: none; cursor: pointer; pointer-events: auto; border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 0px; width: 40px; height: 686.4px; transform: translateZ(1e+12px) translate(-50.4px, 0px) translate(-20px, -343.2px) rotate(0deg) translate(20px, 343.2px);"><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/vtourskin.png&quot;); width: 32px; height: 32px; background-position: 0px -32px; background-size: 64px 384px; transform: translateZ(1e+12px) translate(4px, 327.2px) translate(0px, 0px) rotate(0deg) translate(0px, 0px);"></div></div><div style="display: none; position: absolute; z-index: 3003; overflow: visible; opacity: 0.25; background: none; cursor: pointer; pointer-events: auto; border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 0px; width: 40px; height: 686.4px; transform: translateZ(1e+12px) translate(462.4px, 0px) translate(20px, -343.2px) rotate(0deg) translate(-20px, 343.2px);"><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/vtourskin.png&quot;); width: 32px; height: 32px; background-position: -32px -32px; background-size: 64px 384px; transform: translateZ(1e+12px) translate(4px, 327.2px) translate(0px, 0px) rotate(0deg) translate(0px, 0px);"></div></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none;"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 0; cursor: pointer; pointer-events: auto; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/vtourskin.png&quot;); width: 64px; height: 64px; background-position: 0px -640px; background-size: 128px 768px; transform: translateZ(1e+12px) translate(202.4px, 319.2px) translate(-32px, -32px) scale(0.75, 0.75) translate(32px, 32px) translate(0px, 0px) rotate(0deg) translate(0px, 0px);"></div><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; background: none; cursor: default; pointer-events: none; border-style: solid; border-color: rgb(0, 0, 0); border-width: 0px; border-radius: 0px; width: 300px; height: 0px; transform: translateZ(1e+12px) translate(0px, 0px) translate(-150px, 0px) rotate(0deg) translate(150px, 0px);"><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; color: rgb(0, 0, 0); text-size-adjust: none; background: none; width: 0px; height: 0px; transform: translateZ(1e+12px) translate(20px, 15.2px) translate(0px, 0px) rotate(0deg) translate(0px, 0px);"></div><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/eye.png&quot;); width: 18.4px; height: 12px; background-position: 0px 0px; background-size: 18.4px 12px; transform: translateZ(1e+12px) translate(20px, 50.4px) translate(-9.2px, -6px) rotate(0deg) translate(9.2px, 6px);"></div><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: default; pointer-events: none; color: rgb(0, 0, 0); text-size-adjust: none; background: none; width: 22.4px; height: 24.8px; transform: translateZ(1e+12px) translate(40px, 42.4px) translate(-11.2px, -12.4px) rotate(0deg) translate(11.2px, 12.4px);"><div style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px 0px; transform: scale(1); width: 100%; height: 100%; font-size: 12px; font-family: Arial; line-height: normal; pointer-events: none; visibility: visible;"><div style="position:absolute;white-space:nowrap;"><div style="margin:2px 2px 2px 2px;font-size:16px; color:#FFFFFF; font-family:微软雅黑, Arial, Helvetica, sans-serif;">56</div></div></div></div><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 0.6; cursor: default; pointer-events: none; background-image: url(&quot;http://res1.justeasy.cn/vr/skin/logo.png&quot;); width: 94.4px; height: 24px; background-position: 0px 0px; background-size: 94.4px 24px; transform: translateZ(1e+12px) translate(20px, 75.2px) translate(-47.2px, -12px) rotate(0deg) translate(47.2px, 12px);"></div></div><div style="position: absolute; z-index: 3001; overflow: visible; opacity: 0; color: rgb(0, 0, 0); text-size-adjust: none; pointer-events: auto; background: none; cursor: pointer; width: 57.6px; height: 12px; transform: translateZ(1e+12px) translate(324.8px, 664px) translate(28.8px, 6px) rotate(0deg) translate(-28.8px, -6px);"><div style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px 0px; transform: scale(1); width: 100%; height: 100%; font-size: 12px; font-family: Arial; line-height: normal; pointer-events: none; visibility: visible;"><div style="position:absolute;white-space:nowrap;"><div style="margin:2px 2px 2px 2px;color:#dddddd">技术支持：建E网</div></div></div></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto;"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto;"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 0.3; cursor: default; pointer-events: none;"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 0.3; cursor: default; pointer-events: none;"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto;"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto;"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto;"></div><div style="display: none; position: absolute; z-index: 3001; overflow: visible; opacity: 1; cursor: pointer; pointer-events: auto;"></div></div></div><div style="position: absolute; left: 0px; bottom: 0px; width: 100%; height: 156px; overflow: hidden; display: none; transform: translateZ(2e+12px); z-index: 999999999;"><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden; opacity: 0.67; background-color: rgb(0, 0, 0); box-shadow: rgb(255, 255, 255) 0px 0px 8px; margin-top: 8px;"></div><pre style="font-family: &quot;Courier New&quot;; font-size: 11px; position: absolute; left: 5px; top: 0px; padding: 0px 16px 0px 0px; background: none; border: 0px; margin-top: 10px; width: 100%; height: 146px; overflow: auto; display: block; text-align: left; white-space: pre-line; text-size-adjust: none; color: rgb(255, 255, 255); cursor: text;">INFO: krpano 1.19-pr10 (build 2017-05-10)
+INFO: HTML5/Desktop - Chrome 63.0 - WebGL
+INFO: Registered to: Joseph Fouts Photography
+<span style="color:#FFFF00;">ERROR: layer[skin_layer].layer[skin_btn_fs] - style not found: skin_custom</span>
+<span style="color:#FFFF00;">ERROR: layer[skin_layer].layer[skin_btn_vr] - style not found: skin_custom</span>
+<span style="color:#FFFF00;">ERROR: layer[skin_layer].layer[skin_btn_sound] - style not found: skin_custom</span> </pre><div style="position: absolute; right: 0px; top: 10px; padding: 0px 4px; height: 30px; user-select: none; cursor: pointer; -webkit-tap-highlight-color: transparent; font-family: &quot;Courier New&quot;; font-size: 10px; color: rgb(255, 255, 255);">CLOSE</div><div style="position: absolute; right: 0px; bottom: 0px; padding: 0px 4px 4px; height: 12px; user-select: none; cursor: pointer; -webkit-tap-highlight-color: transparent; font-family: &quot;Courier New&quot;; font-size: 10px; color: rgb(15, 255, 0); display: none;">LAYERS</div><div style="position: absolute; right: 0px; bottom: 18px; padding: 4px 4px 0px; height: 12px; user-select: none; cursor: pointer; -webkit-tap-highlight-color: transparent; font-family: &quot;Courier New&quot;; font-size: 10px; color: rgb(15, 255, 0); display: none;">HOTSPOTS</div></div><div style="display: none; position: absolute; z-index: 3003; overflow: visible; opacity: 0; color: rgb(0, 0, 0); text-size-adjust: none; pointer-events: none; background: none; cursor: default; width: 200px; height: 24px; transform: translateZ(1e+12px) translate(-100px, -24px) translate(0px, 12px) rotate(0deg) translate(0px, -14px);"><div style="position: absolute; top: 0px; left: 0px; transform-origin: 0px 0px 0px; transform: scale(1); width: 100%; height: 100%; font-size: 12px; font-family: Arial; line-height: normal; pointer-events: none; visibility: visible;"><div style="position: absolute; width: 200px; overflow: hidden; text-shadow: rgb(0, 0, 0) 0px 1px 4.8px;"><div style="margin:2px 2px 2px 2px; color:#FFFFFF; font-family:微软雅黑 , Arial , Helvetica, sans-serif; height:20px; font-size:14px; text-align:center; font-size:16px;"></div></div></div></div><div style="position: absolute; top: 0px; left: -10000px; transform-origin: 0px 0px 0px; transform: scale(1); width: 100%; height: 100%; font-size: 12px; font-family: Arial; line-height: normal; pointer-events: none; visibility: hidden;"><div style="position:absolute;white-space:nowrap;"><div style="margin:2px 2px 2px 2px;font-size:18px; color:#FFFFFF;font-family:微软雅黑, Arial, Helvetica, sans-serif;"></div></div></div></div></div>
+
+
+<ul class="pano-wrapper" id="pano-wrapper">
+    <li style="width: 1px;height: 50px;"></li>
+    <li class="share">
+        <div class="ewm none" style="padding: 10px; width:180px;height:180px;background: #fff">
+            <div id="shareimg">
+                <canvas width="180" height="180"></canvas></div>
+        </div>
+        <img src="http://res1.justeasy.cn//vr/skin/icon-fx.png" class="icon">
+        <div class="iconname">分享</div>
+    </li>
+    <li>
+        <a href="javascript:;" id="btn_like">
+            <img src="http://res1.justeasy.cn//vr/skin/icon_like.png" class="icon">
+        </a>
+        <div class="iconname" id="like_num">2</div>
+    </li>
+    <li class="none mdesigner scenes">
+        <a href="http://vr.justeasy.cn/mdesigner/941176.html">
+            <img src="http://res1.justeasy.cn//vr/skin/icon-wzy.png" class="icon">
+        </a>
+        <div class="iconname">微主页</div>
+    </li>
+
+
+</ul>
+
+<div id="des_intro" style="display:none">
+    <div class="intro" style="padding:20px;"></div>
+</div>
+
+
+<script>
+
+
+
+    function getmake(){
+        layer.open({
+            title: "在线预约",
+            area: ['580px', '430px'],
+            type: 1,
+            content: $('.pano-make')
+        });
+    }
+
+    function getmake1(){
+        layer.open({
+            title: "在线预约",
+            area: ['90%', '400px'],
+            type: 1,
+            content: $('.pano-make')
+        });
+    }
+
+    function checkPhone(strPhone) {
+        var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
+        return phoneReg.test(strPhone);
+    }
+
+
+    $('#sub_yuyue').on('click',function(){
+        var id = 1496571;
+        var name = $('#yy_name').val();
+        if(name.length<1){
+            layer.msg('请您输入称呼！');
+            $('#yy_name').addClass('border-red');return false;
+        }
+        $('#yy_name').removeClass('border-red');
+        var phone = $('#yy_phone').val();
+        if(!checkPhone(phone)){
+            layer.msg('请您输入正确的联系电话！');
+            $('#yy_phone').addClass('border-red');return false;
+        }
+        $('#yy_phone').removeClass('border-red');
+        var type = $('#yy_type').val();
+        $('#yy_type').removeClass('border-red');
+        var des = $('#yy_des').val();
+        if(des.length<10){
+            layer.msg('您输入的描述语过于简短！');
+            $('#yy_des').addClass('border-red');return false;
+        }
+        $('#yy_des').removeClass('border-red');
+        $.ajax({
+            url: "http://vr.justeasy.cn/Pano/Index/yuyue.php",
+            type: 'post',
+            dataType: 'json',
+            data: {name: name,id: id,phone:phone,type:type,des:des},
+        }).done(function(data){
+            layer.msg(data.msg,{time:2000},function(){
+                if(data.status == 200){
+                    layer.closeAll();
+                }
+            });
+        }).fail(function(){
+            layer.msg('网络异常！');
+        });
+
+    });
+</script>
+
+<script>
+    document.domain = "justeasy.cn";
+    var scenenum = "1";
+    var xml = "http://vr.justeasy.cn/uploads/xml/1496571_1517716475.xml";
+    embedpano({swf:"http://res1.justeasy.cn//vr/tour.swf", xml:xml, target:"pano", html5:"prefer", mobilescale:1.0, passQueryParameters:true,wmode: "opaque"});
+    var krpano = document.getElementById("krpanoSWFObject");
+    function loadView() {
+        krpano.set("layer[viewnum].html", "56");
+    }
+</script>
+
+<script>
+
+    /*function hideSceneThumb() {
+     var krpano = document.getElementById("krpanoSWFObject");
+     krpano.call("set(layer[skin_btn_thumbs].visible, false);set(layer[skin_btn_thumbs_text_container].visible, false);");
+     }*/
+
+    wx.config({
+        appId: 'wx2ed7c1e3c0abd05b',
+        timestamp: '1517718278',
+        nonceStr: 'c0961c64454edcce7308d19e91d94e2b',
+        signature: '6abc90f6ec36261d31b7cc07799000ab73313be0',
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage','onMenuShareQZone','onMenuShareQQ']
+    });
+    wx.ready(function() {
+        wx.onMenuShareTimeline({
+            title: '灵感之茶',
+            link: 'http://vr.justeasy.cn/view/1496571.html',
+            imgUrl: 'http://img.vr.justeasy.cn/pano/20180204/3d8949cb9bbf4695515a4661add97d81/20180204115335_5a7683bf3d2e1.tiles/thumb.jpg'
+        });
+        wx.onMenuShareAppMessage({
+            title: '灵感之茶',
+            desc: ' ',
+            link: 'http://vr.justeasy.cn/view/1496571.html',
+            imgUrl: 'http://img.vr.justeasy.cn/pano/20180204/3d8949cb9bbf4695515a4661add97d81/20180204115335_5a7683bf3d2e1.tiles/thumb.jpg'
+        });
+        wx.onMenuShareQZone({
+            title: '灵感之茶',
+            desc: ' ',
+            link: 'http://vr.justeasy.cn/view/1496571.html',
+            imgUrl: 'http://img.vr.justeasy.cn/pano/20180204/3d8949cb9bbf4695515a4661add97d81/20180204115335_5a7683bf3d2e1.tiles/thumb.jpg',
+        });
+        wx.onMenuShareQQ({
+            title: '灵感之茶',
+            desc: ' ',
+            link: 'http://vr.justeasy.cn/view/1496571.html',
+            imgUrl: 'http://img.vr.justeasy.cn/pano/20180204/3d8949cb9bbf4695515a4661add97d81/20180204115335_5a7683bf3d2e1.tiles/thumb.jpg',
+        });
+    });
+
+    $(function() {
+        $(document).on("click",".layui-layer-close2",function(){
+            krpano.call("resumesound(bgsnd);");
+        });
+
+        if (navigator.userAgent.match(/mobile/i)) {
+            $(".tel").remove();
+        }
+        $("#pano-wrapper li").hover(function() {
+            $(".none", this).show();
+        }, function() {
+            $(".none", this).hide();
+        });
+        $("#btn_intro").on('click', function(event) {
+            event.preventDefault();
+            layer.open({
+                title: "设计说明",
+                type: 1,
+                shadeClose: true,
+                skin: 'layui-layer-rim',
+                area: ['580px', '340px'],
+                content: $("#des_intro")
+            });
+        });
+        $("#btn_like").on('click', function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: '/likepano.cgi',
+                type: 'get',
+                dataType: 'json',
+                data: {
+                    id: '1496571'
+                }
+            })
+                .done(function(data) {
+                    if (data && data.status == 200) {
+                        var num = parseInt($("#like_num").text());
+                        $("#like_num").text(num+1);
+                        $("#btn_like img").attr("src","http://res1.justeasy.cn//vr/skin/icon_liked.png");
+                        layer.msg('点赞成功！',{time:1000});
+                    } else if(status==-200) {
+                        layer.msg("没有赞成功 :(",{time:1000});
+                    }
+                    else
+                    {
+                        layer.msg("赞过啦 :)",{time:1000});
+                    }
+                })
+        });
+
+    })
+
+    function showBox(id, type) {
+        $.ajax({
+            url: '/hotspotinfo.cgi',
+            type: 'get',
+            dataType: 'json',
+            data: {
+                id: id
+            }
+        })
+            .done(function(data) {
+                if (data && data.status == 200) {
+                    var info = data.list;
+                    if (type == 5) {
+                        layer.photos({
+                            photos: {
+                                "title": info.name,
+                                "id": info.id,
+                                "data": [{
+                                    "alt": info.name,
+                                    "pid": info.id,
+                                    "src": "http://img.vr.justeasy.cn/" + info.target,
+                                    "thumb": ""
+                                }]
+                            }
+                        });
+                    } else {
+                        krpano.call("pausesound(bgsnd);");
+                        layer.msg(info.target, {
+                            time: 0,
+                            area:["auto","auto"],
+                            closeBtn: true
+                        });
+                    }
+
+                }
+            })
+            .fail(function() {
+                layer.msg("网络错误！");
+            });
+
+    }
+
+    $('#shareimg').qrcode({
+        render: 'canvas',
+        ecLevel: 'H',
+        size: 180,
+        radius: 0.5,
+        width : 180,
+        height: 180,
+        background: '#ffffff',
+        text: "http://vr.justeasy.cn/view/1496571.html"
+    });
+
+
+    $(window).load(function() {
+        setTimeout(showclose,5000);
+    });
+
+    function showclose(){
+        $(".top-advert .top-close").show();
+    }
+
+    $(function(){
+        $(".top-advert .top-close").on('click', function(event) {
+            $(".top-advert").hide();
+        });
+    })
+
+    function adverturl(){
+        window.open("");
+        return false;
+    }
+
+    function closeadverturl(){
+        krpano.set("layer[advert001].visible",false);
+    }
+
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d354a40e1143f3574bc86106fd51eddb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script>
+    var _mtac = {"senseQuery":1};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500531126");
+        mta.setAttribute("cid", "500531128");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>
+
+</body>
+</html>

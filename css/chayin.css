@@ -1,0 +1,73 @@
+body {
+  background-color: #666666;
+}
+.container-chayin {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container-chayin img {
+  width: 100%;
+}
+.container-chayin .form {
+  padding: 30px 15px;
+  background-color: #ececec;
+}
+.container-chayin .form .label {
+  width: 10%;
+  float: left;
+  text-align: center;
+  line-height: 60px;
+  font-size: 26px;
+  font-weight: 600;
+}
+.container-chayin .form .shuru {
+  width: 40%;
+  float: left;
+  padding-right: 10px;
+}
+.container-chayin .form .shuru input {
+  border-radius: 0;
+  line-height: 2;
+  font-size: 1.5rem;
+}
+.container-chayin .form .neirong {
+  padding-right: 10px;
+  float: left;
+  width: 90%;
+}
+.container-chayin .form .neirong textarea {
+  font-size: 1.5rem;
+}
+.container-chayin .form button {
+  padding: 15px;
+  width: 20%;
+  margin: 0 auto;
+  font-size: 26px;
+}
+a.tel {
+  display: none;
+}
+@media (max-width: 1000px) {
+  a.tel {
+    overflow: hidden;
+    width: 50px;
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    margin-top: -30px;
+    background-color: #f12c12;
+    border-radius: 3px;
+    z-index: 9999999;
+    text-align: center;
+    color: white !important;
+  }
+  a.tel img {
+    width: 100%;
+  }
+  a.tel:focus,
+  .tel:hover {
+    color: white;
+  }
+}
