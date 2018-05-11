@@ -51,7 +51,7 @@ a.tel {
 @media (max-width: 1000px) {
   a.tel {
     overflow: hidden;
-    width: 50px;
+    width: 60px;
     display: block;
     position: fixed;
     right: 0;
